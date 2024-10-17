@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <script src="serialVisual.js"></script>
+</head>
+
+<body>
+  <h1>Emotion Visualization on Plutchik's Wheel</h1>
+
+  <div class="section">
+    <button onclick="serialConnect()">Serial Connect</button>
+  </div>
+
+  <!-- <canvas id="colorCanvas" style="display: none;"></canvas> -->
+
+  <div id="content" style="visibility: hidden">
+    <div class="section">
+      <h2>Receiving</h2>
+      <div id="readout">Received: <span id="value"></span></div>
+    </div>
+
+    <div class="section">
+      <h2>Send</h2>
+      <input id="message" />
+      <button onclick="serialWrite()">Send</button>
+    </div>
+
+    <div class="section">
+      <button onclick="serialDisconnect()">Disconnect</button>
+    </div>
+  </div>
+
+  <!-- Cursor to represent joystick movement -->
+  <div id="cursor"></div>
+</body>
+
+</html>

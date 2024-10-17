@@ -1,0 +1,27 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-image: url('assets/emotion-wheel-background.png');
+  background-size: 800px 800px; 
+  background-position: center top; 
+  background-repeat: no-repeat; 
+  margin: 10px;
+  padding: 0;
+}
+
+h1 {
+  color: #333;
+}
+
+.section {
+  margin: 10px 0;
+}
+
+#cursor {
+  width: 20px;
+  height: 20px;
+  background-color: pink;
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
