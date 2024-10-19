@@ -10,10 +10,8 @@
   <h1>Emotion Visualization on Plutchik's Wheel</h1>
 
   <div class="section">
-    <button onclick="serialConnect()">Serial Connect</button>
+    <button class="button-11" role="button" onclick="serialConnect()">Serial Connect</button>
   </div>
-
-  <!-- <canvas id="colorCanvas" style="display: none;"></canvas> -->
 
   <div id="content" style="visibility: hidden">
     <div class="section">
@@ -34,6 +32,14 @@
 
   <!-- Cursor to represent joystick movement -->
   <div id="cursor"></div>
+
+  <!-- Area to contain the drawn stickers -->
+  <div id="sticker-area"></div>
+
+  <!-- Gradient bar and potentiometer wiper -->
+  <div id="color-bar">
+    <div id="wiper"></div>
+  </div>
 </body>
 
 </html>

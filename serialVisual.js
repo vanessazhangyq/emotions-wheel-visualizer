@@ -3,7 +3,9 @@ var reader;
 var port;
 var inputDone;
 var writableStreamClosed;
-let cursor; // DOM element representing the cursor
+let cursor; 
+let stickerArea;
+let wiper;
 
 // Called when user clicks Serial Connect button
 const serialConnect = async () => {
@@ -21,6 +23,8 @@ const serialConnect = async () => {
   writer = textEncoder.writable.getWriter();
 
   cursor = document.getElementById("cursor");
+  stickerArea = document.getElementById("sticker-area");
+  wiper = document.getElementById("wiper");
 };
 
 async function handleSerial() {
@@ -63,12 +67,35 @@ function updateUI(data) {
     cursor.style.left = `${xPos}px`;
     cursor.style.top = `${yPos}px`;
 
-    // Log the potentiometer and button state to console
+    // Map potentiometer value to a color (0-4095 mapped to hue)
+    const hue = mapRange(data.potValue, 0, 4095, 0, 360);
+    const color = `hsl(${hue}, 100%, 50%)`;
+    cursor.style.backgroundColor = color;
+
+    // Move the wiper based on potentiometer value
+    const wiperPosition = mapRange(data.potValue, 0, 4095, 0, document.getElementById("color-bar").offsetWidth - wiper.offsetWidth);
+    wiper.style.left = `${wiperPosition}px`;
+
     console.log(`Button: ${data.buttonState}, Potentiometer: ${data.potValue}`);
 
     // Update the visual readout
     document.getElementById("value").innerText = `Button: ${data.buttonState}, Potentiometer: ${data.potValue}, Joystick X: ${data.xVal}, Joystick Y: ${data.yVal}, Joystick Z: ${data.zVal}`;
+
+    // If the button is pressed, create a new circle sticker at the joystick position
+    if (data.buttonState === 0) {
+      createSticker(xPos, yPos, color);
+    }
   }
+}
+
+// Create a circle sticker at the given position with the given color
+function createSticker(x, y, color) {
+  const sticker = document.createElement("div");
+  sticker.classList.add("sticker");
+  sticker.style.left = `${x - 10}px`;
+  sticker.style.top = `${y - 318}px`;
+  sticker.style.backgroundColor = color;
+  stickerArea.appendChild(sticker);
 }
 
 // Utility function to map joystick values to screen coordinates
