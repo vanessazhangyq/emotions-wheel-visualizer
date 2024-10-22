@@ -43,7 +43,7 @@ async function handleSerial() {
 
 // Parse incoming serial data
 function parseSerialData(data) {
-  // Assuming data is in the format:
+  // Data is in the format:
   // Button: 1, Potentiometer: 2048, Joystick: 512, 512, 0
   const match = data.match(/Button: (\d+), Potentiometer: (\d+), Joystick: (\d+),(\d+),(\d+)/);
   if (match) {
@@ -78,7 +78,6 @@ function updateUI(data) {
 
     console.log(`Button: ${data.buttonState}, Potentiometer: ${data.potValue}`);
 
-    // Update the visual readout
     document.getElementById("value").innerText = `Button: ${data.buttonState}, Potentiometer: ${data.potValue}, Joystick X: ${data.xVal}, Joystick Y: ${data.yVal}, Joystick Z: ${data.zVal}`;
 
     // If the button is pressed, create a new circle sticker at the joystick position
@@ -92,8 +91,8 @@ function updateUI(data) {
 function createSticker(x, y, color) {
   const sticker = document.createElement("div");
   sticker.classList.add("sticker");
-  sticker.style.left = `${x - 10}px`;
-  sticker.style.top = `${y - 318}px`;
+  sticker.style.left = `${x - 22}px`;
+  sticker.style.top = `${y - 774}px`;
   sticker.style.backgroundColor = color;
   stickerArea.appendChild(sticker);
 }
