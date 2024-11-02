@@ -37,6 +37,7 @@ The objective of this project is to create an interactive visualization tool tha
     - Assembly:
         - Use Double Sided Nano tape to fix the joystick board at the center of the bottom enclosure
         - Use any liquid glue to assemble the two parts together
+      <img src="https://github.com/user-attachments/assets/3b8632d4-eaf2-403a-9ce3-af01408d5b4e" width="200">
 
 ### Programming
 
