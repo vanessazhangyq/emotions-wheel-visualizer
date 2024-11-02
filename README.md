@@ -22,7 +22,8 @@ The objective of this project is to create an interactive visualization tool tha
 
 ### Hardware
 
-1. Follow the Fritzing diagram under `assets/emotions-wheel-fritzing.fzz` to set up the breadboard
+1. Follow the Fritzing diagram to set up the breadboard
+    <img width="700" alt="Screenshot 2024-10-30 at 14 08 07" src="https://github.com/user-attachments/assets/2d641523-0882-4518-a493-06842163a7c0">
 2. Make sure that:
     - Button is connected to Pin `2`
     - The divider of the potentiometer is connected to Pin `13`
